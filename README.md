@@ -1,8 +1,8 @@
-# AI Notes Vault – Backend 🧠
+# AI Notes Vault 🧠📚
 
-AI Notes Vault is a backend service built with Flask that allows users to create, manage, and organize notes while automatically generating AI-powered summaries and key points. The backend also supports uploading PDF files and extracting their content for AI-based summarization.
+AI Notes Vault is a full-stack AI-powered note management application that allows users to create, organize, and manage notes while automatically generating summaries and key points using AI. Users can also upload PDF files and extract summarized information from them.
 
-This project demonstrates the integration of Flask APIs, MongoDB, and AI models to build an intelligent note management system.
+The project integrates a **React frontend**, **Flask backend**, **MongoDB database**, and **Groq AI models** to build an intelligent note-taking system.
 
 ---
 
@@ -15,100 +15,95 @@ This project demonstrates the integration of Flask APIs, MongoDB, and AI models 
 - AI-generated key points extraction
 - Upload PDF files and extract text
 - Automatic summarization of PDF content
-- Tag notes for better organization
+- Tag notes for organization
 - Star important notes
 - Delete notes
-- REST API based backend
+- Full-stack architecture
 
 ---
 
 ## AI Capabilities
 
-The backend integrates with Groq's LLaMA-3.1-8B model to perform natural language processing tasks such as:
+The system uses **Groq's LLaMA-3.1-8B model** to perform natural language processing tasks:
 
-- Generating concise summaries from long text
-- Extracting important key points
-- Processing text extracted from uploaded PDFs
+- Generate concise summaries from long text
+- Extract key points
+- Process text extracted from PDFs
 
 ---
 
 ## Tech Stack
 
-Backend
+### Frontend
+- React
+- JavaScript
+- Tailwind CSS
+- PostCSS
+
+### Backend
 - Python
 - Flask
 - Flask-CORS
 
-Database
+### Database
 - MongoDB Atlas
 - PyMongo
 
-AI Integration
-- Groq API (LLaMA-3.1-8B model)
+### AI Integration
+- Groq API (LLaMA-3.1-8B)
 
-File Processing
+### File Processing
 - PyPDF2
 - PyMuPDF (fitz)
 
-Security
+### Security
 - Werkzeug password hashing
-- Environment variables for secret management
-
+- Environment variables for secrets
 
 ---
-
 ## Environment Variables
 
-Sensitive credentials are stored using environment variables like Groq_api_key and mongo_url.
+Sensitive credentials are stored using environment variables.
 
 
-
-These values are excluded from version control using `.gitignore`.
-
----
 
 ## API Endpoints
 
-Authentication
+### Authentication
 
 | Method | Endpoint | Description |
 |------|------|------|
 | POST | /api/auth/register | Register a new user |
 | POST | /api/auth/login | Login a user |
 
-Notes
+### Notes
 
 | Method | Endpoint | Description |
 |------|------|------|
-| POST | /api/notes | Create a new note |
-| GET | /api/notes | Retrieve notes for a user |
-| DELETE | /api/notes/<note_id> | Delete a note |
-| POST | /api/notes/<note_id>/toggle-star | Toggle star status |
+| POST | /api/notes | Create a note |
+| GET | /api/notes | Retrieve notes |
+| DELETE | /api/notes/<note_id> | Delete note |
+| POST | /api/notes/<note_id>/toggle-star | Toggle star |
 
-PDF Processing
+### PDF Processing
 
 | Method | Endpoint | Description |
 |------|------|------|
 | POST | /api/notes/upload-pdf | Upload and summarize PDF |
 
-Health Check
+### Health Check
 
 | Method | Endpoint | Description |
 |------|------|------|
-| GET | /api/health | Verify backend is running |
+| GET | /api/health | Check backend status |
 
 ---
 
-## Workflow
+## Application Workflow
 
-User registers or logs in through the authentication API.  
-Notes can be created manually or generated from uploaded PDFs.  
-The backend extracts text and sends it to the AI model for summarization and key point extraction.  
-Processed notes are stored in MongoDB and can later be retrieved, starred, or deleted.
+Users interact with the React frontend to create notes or upload PDF files.  
+The frontend sends requests to the Flask backend through REST APIs.  
+The backend processes text, sends it to the Groq AI model for summarization and key point extraction, and stores the processed notes in MongoDB.  
+Users can then view, organize, star, or delete their notes.
 
 ---
-
-
-
-
-
