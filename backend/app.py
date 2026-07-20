@@ -7,6 +7,9 @@ from groq import Groq
 import os
 from PyPDF2 import PdfReader
 import fitz
+from dotenv import load_dotenv
+load_dotenv()
+
 
 
 app = Flask(__name__)
